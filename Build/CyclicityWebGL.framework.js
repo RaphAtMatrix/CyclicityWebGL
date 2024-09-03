@@ -1167,29 +1167,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 2969628: function() {
+ 2969724: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 2969683: function($0) {
+ 2969779: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 2969731: function($0) {
+ 2969827: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 2969779: function() {
+ 2969875: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 2969834: function() {
+ 2969930: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 2969895: function() {
+ 2969991: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 2969959: function() {
+ 2970055: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -10625,6 +10625,15 @@ function _flock(fd, operation) {
  return 0;
 }
 
+function _focusHandleAction(_name, _str) {
+ if (UnityLoader.SystemInfo.mobile == true) {
+  var _inputTextData = prompt("", Pointer_stringify(_str));
+  if (_inputTextData == null || _inputTextData == "") {} else {
+   SendMessage(Pointer_stringify(_name), "ReceiveInputData", _inputTextData);
+  }
+ }
+}
+
 function _getTempRet0() {
  return getTempRet0();
 }
@@ -13755,6 +13764,7 @@ var asmLibraryArg = {
  "fd_seek": _fd_seek,
  "fd_write": _fd_write,
  "flock": _flock,
+ "focusHandleAction": _focusHandleAction,
  "getTempRet0": _getTempRet0,
  "gethostbyaddr": _gethostbyaddr,
  "gethostbyname": _gethostbyname,
