@@ -1167,29 +1167,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 2970684: function() {
+ 2970700: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 2970739: function($0) {
+ 2970755: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 2970787: function($0) {
+ 2970803: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 2970835: function() {
+ 2970851: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 2970890: function() {
+ 2970906: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 2970951: function() {
+ 2970967: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 2971015: function() {
+ 2971031: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -1307,6 +1307,10 @@ function _DownloadFile(array, size, fileNamePtr) {
  event.initMouseEvent("click");
  link.dispatchEvent(event);
  window.URL.revokeObjectURL(link.href);
+}
+
+function _IsMobile() {
+ return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 }
 
 var JS_Accelerometer = null;
@@ -13577,6 +13581,7 @@ function intArrayFromString(stringy, dontAddNull, length) {
 
 var asmLibraryArg = {
  "DownloadFile": _DownloadFile,
+ "IsMobile": _IsMobile,
  "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
  "JS_Accelerometer_Start": _JS_Accelerometer_Start,
  "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
