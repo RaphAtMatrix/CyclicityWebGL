@@ -1311,7 +1311,7 @@ function _BrowserTextUpload(extFilter, gameObjName, dataSinkFn) {
      alert("Error while reading file " + file.name + ": " + loadEvent.target.error);
      return;
     }
-    CyclicityWebGL.SendMessage(inputLoader.gameObjName, inputLoader.dataSinkFn, evt.target.result);
+    HexaGame.SendMessage(inputLoader.gameObjName, inputLoader.dataSinkFn, evt.target.result);
    };
    reader.readAsText(file);
   };
